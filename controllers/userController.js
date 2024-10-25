@@ -36,7 +36,7 @@ const userController = {
                 return res.status(400).json({ message: "Email or password incorrect" });
             }
 
-            const token = jwt.sign({_id: selectedUser._id}, process.env.SECRET)
+            const token = jwt.sign({_id: selectedUser._id, admin: selectedUser.admin}, process.env.SECRET)
             
             res.header("authorization-token", token);
 
